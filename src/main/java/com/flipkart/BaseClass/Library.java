@@ -2,8 +2,8 @@ package com.flipkart.BaseClass;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -30,7 +30,7 @@ public class Library {
 				driver = new ChromeDriver(options);
 			}
 			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 			driver.get(prop.getProperty("url"));
 		} catch (Exception e) {
 			System.out.println("Browser not launched");

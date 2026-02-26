@@ -22,12 +22,12 @@ public class SearchMobile_TestCase extends Library {
 
     @When("Close the popup")
     public void close_the_popup() {
-
+        sp = new SearchPage(driver);
+        sp.closePopUp();
     }
 
     @Then("it should navigate to the home page")
     public void it_should_navigate_to_the_home_page() {
-        sp = new SearchPage(driver);
         sp.onHomePage();
     }
 

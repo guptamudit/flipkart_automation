@@ -27,6 +27,9 @@ public class SearchPage extends Library {
     @FindBy(xpath = "//*[@id=\"container\"]/div/div[3]/div[1]/div[1]/div/div[1]/div/div/section/div[3]/div/a")
     WebElement resultPage;
 
+    @FindBy(xpath = "/html/body/div[5]/div/span")
+    WebElement popup;
+
     public void search(String text) {
 
         sr = new SeleniumReusable(driver);
@@ -45,5 +48,9 @@ public class SearchPage extends Library {
     public void onSearchResultPage() {
         System.out.println(resultPage.isDisplayed());
         System.out.println(driver.getTitle());
+    }
+
+    public void closePopUp() {
+        sr.click(popup);
     }
 }

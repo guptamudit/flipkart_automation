@@ -18,7 +18,7 @@ public class Library {
 
 	public void launchApplication() throws IOException {
 		FileInputStream input = new FileInputStream(
-				"/Flipkart_Automation/src/test/resources/Properties/Config.Property");
+				"/src/test/resources/Properties/Config.Property");
 		prop = new Properties();
 		prop.load(input);
 

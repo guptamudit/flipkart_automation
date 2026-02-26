@@ -57,4 +57,9 @@ public class SeleniumReusable extends Library {
             e.printStackTrace();
         }
     }
+
+    // get text from page
+    public String getText(WebElement element) {
+        return element.getText();
+    }
 }

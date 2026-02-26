@@ -22,7 +22,17 @@ public class SearchResultPage extends Library {
     @FindBy(xpath = "//*[@id='container']/div/div[3]/div[1]/div[2]/div[2]/div/div/div/a/div[1]/div[1]/div/div/img")
     WebElement FirstResult;
 
+    @FindBy(xpath = "//*[@id=\"container\"]/div/div[1]/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div/div[1]/div/div[2]/div/div[2]/div/div/div/div/div/div/div/div/div[1]/div")
+    WebElement productName;
+
+    @FindBy(xpath = "//*[@id=\"container\"]/div/div[1]/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div/div[1]/div/div[2]/div/div[2]/div/div/div/div/div/div/div/div/div[2]/div/div")
+    WebElement productDescription;
+
+    @FindBy(xpath = "//*[@id=\"container\"]/div/div[1]/div/div/div/div/div/div/div/div/div/div/div[2]/div/div[2]/div/div/div/div[1]/div/div[2]/div/div[4]/div/div/div/div/div/div/div/div/div/div/div/a/div/div[3]/div")
+    WebElement ProdPrice;
+
     public void clickOnProduct() {
+        sr = new SeleniumReusable(driver);
         sr.click(FirstResult);
     }
 
@@ -34,5 +44,17 @@ public class SearchResultPage extends Library {
                 driver.switchTo().window(handle);
             }
         }
+    }
+
+    public String getProductName() {
+        return sr.getText(productName);
+    }
+
+    public String getProductDesc() {
+        return sr.getText(productDescription);
+    }
+
+    public String getProductPrice() {
+        return sr.getText(ProdPrice);
     }
 }

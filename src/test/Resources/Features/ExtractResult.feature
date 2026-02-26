@@ -11,4 +11,3 @@ When: click on the search button
 Then: It should navigate to the search result page and display the relevant products    
 When: user click on the first product
 Then: extract the product name and price
-Then: It should display the extracted product name and price in the console

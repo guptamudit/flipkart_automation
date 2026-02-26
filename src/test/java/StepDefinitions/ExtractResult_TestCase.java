@@ -59,11 +59,8 @@ public class ExtractResult_TestCase extends Library {
 
     @Then("extract the product name and price")
     public void extractDetails() {
-
-    }
-
-    @Then("It should display the extracted product name and price in the console")
-    public void displayInConsole() {
-
+        System.out.println("Product Name : " + srp.getProductName());
+        System.out.println("Product Description : " + srp.getProductDesc());
+        System.out.println("Product Price : " + srp.getProductPrice());
     }
 }

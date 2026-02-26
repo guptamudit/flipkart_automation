@@ -11,5 +11,4 @@ When: click on the search button
 Then: It should navigate to the search result page and display the relevant products  
 And: Select Minimum and Maximum price range
 And: Select the brand
-And: Select the RAM
 Then: It should display the products based on the applied filters

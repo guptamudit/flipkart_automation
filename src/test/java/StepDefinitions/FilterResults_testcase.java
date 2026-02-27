@@ -53,6 +53,7 @@ public class FilterResults_testcase extends Library {
 
     @And("Select Minimum and Maximum price range")
     public void select_minimum_and_maximum_price_range() throws InterruptedException {
+        srp = new SearchResultPage(driver);
         srp.SelectRPiceRanges(20000, 30000);
     }
 

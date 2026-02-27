@@ -53,6 +53,7 @@ public class TestHoverFunctionality_TestCase extends Library {
 
     @And("Go to Mens section")
     public void navigateToMensSection() throws InterruptedException {
+        srp = new SearchResultPage(driver);
         srp.navigateToMensSection();
         Thread.sleep(2000);
     }

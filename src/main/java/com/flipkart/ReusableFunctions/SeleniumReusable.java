@@ -66,7 +66,11 @@ public class SeleniumReusable extends Library {
 
     // hover over an element
     public void hover(WebElement element) {
-        Actions ac = new Actions(driver);
-        ac.moveToElement(element).perform();
+        try {
+            Actions ac = new Actions(driver);
+            ac.moveToElement(element).perform();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import com.flipkart.BaseClass.Library;
 import com.flipkart.ReusableFunctions.SeleniumReusable;
@@ -49,6 +50,15 @@ public class SearchResultPage extends Library {
 
     @FindBy(xpath = "//*[@id=\"container\"]/div/div[3]/div/div[2]/div[2]/div/div/div/a/div[2]/div[1]/div[1]")
     WebElement FilterbrandResult;
+
+    @FindBy(xpath = "//*[@id=\"container\"]/div/div[2]/div/div/span[3]")
+    WebElement mensSectioElement;
+
+    @FindBy(xpath = "//*[@id=\"container\"]/div/div[2]/div/div/div/div[1]/a[7]")
+    WebElement LoafersSection;
+
+    @FindBy(xpath = "//*[@id=\"container\"]/div/div[3]/div[1]/div[2]/div[1]/div/div/h1")
+    WebElement loafersTitle;
 
     public void clickOnProduct() {
         sr = new SeleniumReusable(driver);
@@ -100,4 +110,18 @@ public class SearchResultPage extends Library {
             System.out.println("Filtered Result Unsuccessful");
         }
     }
+
+    public void navigateToMensSection() {
+        sr.hover(mensSectioElement);
+    }
+
+    public void selectLoafers() {
+        sr.click(LoafersSection);
+    }
+
+    public void validateLoafersSection() {
+        String s = sr.getText(loafersTitle);
+        Assert.assertTrue(s.contains("Loafers"), "False Validation");
+    }
+
 }

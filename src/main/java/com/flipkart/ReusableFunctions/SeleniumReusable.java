@@ -8,6 +8,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import com.flipkart.BaseClass.Library;
 
@@ -61,5 +62,11 @@ public class SeleniumReusable extends Library {
     // get text from page
     public String getText(WebElement element) {
         return element.getText();
+    }
+
+    // hover over an element
+    public void hover(WebElement element) {
+        Actions ac = new Actions(driver);
+        ac.moveToElement(element).perform();
     }
 }

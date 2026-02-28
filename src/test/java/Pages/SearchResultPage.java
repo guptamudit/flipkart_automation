@@ -60,6 +60,9 @@ public class SearchResultPage extends Library {
     @FindBy(xpath = "//*[@id=\"container\"]/div/div[3]/div[1]/div[2]/div[1]/div/div/h1")
     WebElement loafersTitle;
 
+    @FindBy(xpath = "//*[@id=\"container\"]/div/div[3]/div[1]/div[2]/div[2]/div/div[1]/div/div/div[2]")
+    WebElement FirstProdName;
+
     public void clickOnProduct() {
         sr = new SeleniumReusable(driver);
         sr.click(FirstResult);
@@ -122,6 +125,10 @@ public class SearchResultPage extends Library {
     public void validateLoafersSection() {
         String s = sr.getText(loafersTitle);
         Assert.assertTrue(s.contains("Loafers"), "False Validation");
+    }
+
+    public String getFirstProdName() {
+        return sr.getText(FirstProdName);
     }
 
 }

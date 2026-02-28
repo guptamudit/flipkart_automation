@@ -19,6 +19,7 @@ public class AddToCart_TestCase extends Library {
     SearchResultPage srp;
     ProductDetailsPage pd;
     String ProductName;
+    String ProdDetailsPageProdName;
     // --- Background Steps ---
 
     @Given("Launch the flipkart application")
@@ -64,21 +65,23 @@ public class AddToCart_TestCase extends Library {
 
     @Then("It should navigate to the product details page")
     public void it_should_navigate_to_the_product_details_page() {
-        Assert.assertEquals(ProductName, pd.ProdName());
+        ProdDetailsPageProdName = pd.ProdName();
+        Assert.assertEquals(ProductName, ProdDetailsPageProdName);
     }
 
     @And("user click on the add to cart button")
     public void user_click_on_the_add_to_cart_button() {
-
+        pd.addtoCart();
     }
 
     @And("select the size of the product")
     public void select_the_size_of_the_product() {
-        // Step to handle size selection (if required for the category)
+        pd.selectSize();
+        pd.gotToCart();
     }
 
     @Then("It should add the product to the cart")
     public void it_should_add_the_product_to_the_cart() {
-        // Step to verify the cart count or "Successfully added" message
+        Assert.assertTrue(pd.checkProdinCart().contains(ProdDetailsPageProdName));
     }
 }
